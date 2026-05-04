@@ -1,5 +1,5 @@
 # Data Science Capstone 2 Project
-## Modeling the Impact of Energy Consumption, Economic Activity & Plastic Intensive Supply Chains on Global Warming
+## Understanding the Impact of Economic, Demographic, Energy Factors & Plastics on Global Warming
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
@@ -42,11 +42,11 @@ Ridge Regression Model was chosen to model of choice as it performed the best wi
 4. Population drives Total CO2 emissions but not CO2 per capita.
 5. The increasing trend of plastics production continues to contribute towards energy consumption and hence total co2 emissions and global warming.
 
-![Ridge Model Feature Importance](reports/figures/ridge_feature_imp_plot.png)
+<img src="reports/figures/ridge_feature_imp_plot.png" alt="Ridge Model Feature Importance" width="400" />
 
-![Random Forest Model Feature Importance](reports/figures/random_forest_feature_imp_plot.png)
+<img src="reports/figures/random_forest_feature_imp_plot.png" alt="Random Forest Feature Importance" width="400" />
 
-![Plastics Production & CO2 Emissions Trend](reports/figures/plastics_co2_trend_plot.png)
+<img src="reports/figures/plastics_co2_trend_plot.png" alt="Plastics Production & CO2 Emissions Trend" width="400" />
 
 ## Key Takeaways
 
