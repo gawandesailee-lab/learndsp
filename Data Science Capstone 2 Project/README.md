@@ -42,11 +42,11 @@ Ridge Regression Model was chosen to model of choice as it performed the best wi
 4. Population drives Total CO2 emissions but not CO2 per capita.
 5. The increasing trend of plastics production continues to contribute towards energy consumption and hence total co2 emissions and global warming.
 
-![Ridge Model Feature Importance](reports/figures/ridge_feature_imp_plot.png)
+![Ridge Model Feature Importance](./reports/figures/ridge_feature_imp_plot.png)
 
-![Random Forest Model Feature Importance](reports/figures/random_forest_feature_imp_plot.png)
+![Random Forest Model Feature Importance](./reports/figures/random_forest_feature_imp_plot.png)
 
-![Plastics Production & CO2 Emissions Trend](reports/figures/plastics_co2_trend_plot.png)
+![Plastics Production & CO2 Emissions Trend](./reports/figures/plastics_co2_trend_plot.png)
 
 ## Key Takeaways
 
