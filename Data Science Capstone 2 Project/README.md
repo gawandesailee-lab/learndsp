@@ -23,11 +23,11 @@ on global CO2 emissions while also exploring the effect of plastics as a macro d
 
 Following Models were used for the analysis to model for total log co2 and log co2 per capita as target variables
 
-1. Linear Regression
-   a. Ordinary Least Squared (Unscaled + Scaled)
+1. Linear Regression<br>
+   a. Ordinary Least Squared (Unscaled + Scaled)<br>
    b. Ridge Regression (Scaled)
 
-2. Non Linear Model
+2. Non Linear Model<br>
    a. Random Forest (Scaled)
 
 ## Final Model
