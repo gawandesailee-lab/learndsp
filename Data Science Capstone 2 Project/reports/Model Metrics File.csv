@@ -1,0 +1,13 @@
+Target,Models,R2,RMSE,MAE,Final Model,Comments
+Total CO2 Emissions,Ordinary Least Squares Fixed Effects (Unscaled),0.985,0.263,0.201,No,"Interpretable, Strong Performance due to Population Signal Dominance"
+Total CO2 Emissions,Ordinary Least Squares  Fixed Effects (Scaled),0.985,0.263,0.201,No,"Interpretable, Strong Performance due to Population Signal Dominance"
+Total CO2 Emissions,Ridge Regression (Scaled),0.988,0.231,0.167,No,"Strongest Performance, Interpretability & Stability"
+Total CO2 Emissions,Random Forest (Scaled),0.980,0.301,0.205,No,Lower Performance but captures Non Linearity
+CO2 Per Capita,Ordinary Least Squares  Fixed Effects (Unscaled),0.969,0.263,0.201,No,Lower Performance with Population Signal removed
+CO2 Per Capita,Ordinary Least Squares  Fixed Effects (Scaled),0.969,0.263,0.201,No,Lower Performance with Population Signal removed
+CO2 Per Capita,Ridge Regression (Scaled),0.976,0.231,0.167,Yes,"Strongest Performance, Interpretability & Stability - Final Selection as it is not driven by population"
+CO2 Per Capita,Random Forest (Scaled),0.973,0.247,0.182,No,Good Performance and Confirms Feature Importance from Ridge Model above
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
