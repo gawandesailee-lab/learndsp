@@ -65,10 +65,10 @@ Three raw sources (EV registrations, all vehicle registrations, socioeconomic/in
 
 ### 2. Exploratory Data Analysis
 - **Distributions:** `ev_adoption_rate`, population, and charging density/stations were all right-skewed and required transformation
-<img src="reports/figures/all_ev_adoption_related_distributions.png" alt="EV Adoption Related Distributions" width="400" />
-<img src="reports/figures/all_socioeconomic_distributions.png" alt="Socioeconomic Distributions" width="400" />
-<img src="reports/figures/all_charging_distributions.png" alt="EV Charging Distributions" width="400" />
-<img src="reports/figures/all_ev_feature_distributions.png" alt="EV Feature Distributions" width="400" />
+<img src="./reports/figures/all_ev_adoption_related_distributions.png" alt="EV Adoption Related Distributions" width="400" />
+<img src="./reports/figures/all_socioeconomic_distributions.png" alt="Socioeconomic Distributions" width="400" />
+<img src="./reports/figures/all_charging_distributions.png" alt="EV Charging Distributions" width="400" />
+<img src="./reports/figures/all_ev_feature_distributions.png" alt="EV Feature Distributions" width="400" />
 - **Bivariate analysis:** strongest positive relationships with adoption rate were prior-year adoption (lag), median income, and charging infrastructure (density and station count); vehicle-technology features (CAFV eligibility, BEV share) were weak predictors
 
 - **Correlation with target (`ev_adoption_rate`):**
@@ -88,27 +88,27 @@ Three raw sources (EV registrations, all vehicle registrations, socioeconomic/in
 
   EV Adoption Lag, Median Income  & EV Charging Density features seem to have the highest correlation with EV Adoption.
 
- <img src="reports/figures/ev_raw_correlations.png" alt="EV Raw Correlations Matrix" width="400" />
+ <img src="./reports/figures/ev_raw_correlations.png" alt="EV Raw Correlations Matrix" width="400" />
 
  The boxplots reveal a clear socio-economic divide where high-adoption regions are clearly separated by higher median incomes, charging station densities, and historical adoption momentum, while highlighting extreme population outliers and the heavy visual redundancy of the vehicle-mix features such as cafv_eligibility_rate & bev_ratio_within_ev (showing compressed, high-positioned medians for high-adoption zones).
 
- <img src="reports/figures/ev_segmentation_box_plots.png" alt="EV Segmentation Box Plots" width="400" />
+ <img src="./reports/figures/ev_segmentation_box_plots.png" alt="EV Segmentation Box Plots" width="400" />
 
 - **Time trends:** adoption, adoption lag, and charging infrastructure all show accelerating (near-exponential) growth from 2017–2025; income and population grow steadily
 
-<img src="reports/figures/all_ev_feature_trends.png" alt="EV Features Trends" width="400" />
+<img src="./reports/figures/all_ev_feature_trends.png" alt="EV Features Trends" width="400" />
 
 The top 5 vs. bottom 5 counties EV Adoption trends (below) show a huge divide where high ev adoption counties have achieved an exponential momentum while low adoption counties are seeing 0 to extremely low adoption potentially due to low population, lack of income, infrastructure and policies.
 
-<img src="reports/figures/all_ev_top_adoption.png" alt="EV Adoption - Top Counties" width="400" />
+<img src="./reports/figures/all_ev_top_adoption.png" alt="EV Adoption - Top Counties" width="400" />
 
-<img src="reports/figures/all_ev_bottom_adoption.png" alt="EV Adoption - Bottom counties" width="400" />
+<img src="./reports/figures/all_ev_bottom_adoption.png" alt="EV Adoption - Bottom counties" width="400" />
 
 
 - **Transformation:** Yeo–Johnson power transform applied to population, median income, charging density, adoption lag, and the target — chosen over log transform because it better handled the zero-heavy, right-skewed distributions. VIF checks confirmed low multicollinearity (all values < 4.3) across the retained feature set.
 - Weakly correlated / anomaly-prone features (`income_per_vehicle`, `new_ev_purchase_ratio`, `bev_ratio_within_ev`, `cafv_eligibility_rate`, `ev_charging_stations`, `ev_growth_rate`) were dropped from the modeling dataset.
 
-<img src="reports/figures/yj_transformed_correlations.png" alt="EV Transformed Key Feature Correlations Matrix" width="400" />
+<img src="./reports/figures/yj_transformed_correlations.png" alt="EV Transformed Key Feature Correlations Matrix" width="400" />
 
 ### 3. Preprocessing & Training Setup
 - Two feature sets were finalized:
@@ -126,13 +126,13 @@ The top 5 vs. bottom 5 counties EV Adoption trends (below) show a huge divide wh
 - **Test set (2024–2025) performance:** R² ≈ 0.96, RMSE ≈ 0.14, MAE ≈ 0.11 (on the Yeo–Johnson-transformed adoption rate)
 - **Feature importance (standardized coefficients):** prior-year adoption (lag) is by far the dominant driver, followed by median income (slightly ahead of charging infrastructure), with population contributing only weakly
 
-<img src="reports/figures/ridge_feature_imp_plot_w_population.png" alt="EV Ridge Feature Importance Plot" width="400" />
+<img src="./reports/figures/ridge_feature_imp_plot_w_population.png" alt="EV Ridge Feature Importance Plot" width="400" />
 
 - **Residuals:** roughly centered at zero and approximately normal, with a mild tendency to over-predict at higher adoption values — acceptable but not perfect adherence to linear regression assumptions
 
-<img src="reports/figures/residuals_distribution.png" alt="Ridge Model Residuals Distribution" width="400" />
+<img src="./reports/figures/residuals_distribution.png" alt="Ridge Model Residuals Distribution" width="400" />
 
-<img src="reports/figures/residuals_vs_predictions.png" alt="Ridge Model Residuals Vs. Predictions Plot" width="400" />
+<img src="./reports/figures/residuals_vs_predictions.png" alt="Ridge Model Residuals Vs. Predictions Plot" width="400" />
 
 **K-Means Clustering** (county-level, latest available year per county)
 - Optimal k = 3, selected via elbow method and silhouette score
@@ -140,7 +140,7 @@ The top 5 vs. bottom 5 counties EV Adoption trends (below) show a huge divide wh
 - **Cluster 1 — Medium Adoption (22 counties, 56%):** ~1.6% avg. adoption, mid income (~$60K–95K), lower population, higher public charging density (~0.04) — public infrastructure is substituting for lower income
 - **Cluster 2 — Rural Isolation Outlier (1 county — Garfield):** near-zero adoption, moderate income (~$71K), zero public charging infrastructure, small population — a structural "charging desert"
 
-<img src="reports/figures/kmeans_clusters.png" alt="KMeans Clusters" width="400" />
+<img src="./reports/figures/kmeans_clusters.png" alt="KMeans Clusters" width="400" />
 
 
 ### 5. Combined Insights
