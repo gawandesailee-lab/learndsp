@@ -1,0 +1,4 @@
+Target,Model,R2,RMSE,MAE,Inertia,Silhouette,Final Model,Comments
+EV Adoption Rate (Test Set 2024-2025),"Ridge Regression (GridSearchCV-tuned alpha=0.001; scaled, time series split cv folds = 5)",0.961,0.145,0.112,,,Yes,"Strongest available evidence; explains ~96% of test-set variance; adoption lag, income, and charging density are dominant drivers"
+EV Adoption Rate (Train Set 2017-2023),"Ridge Regression (GridSearchCV-tuned alpha=0.001; scaled, time series split cv folds = 5)",0.946,0.204,0.129,,,No,Shown for reference only; test-set metrics above are the basis for model evaluation
+County Segment (k=3),K-Means Clustering (scaled),,,,36.22,0.362,Yes,"Highest silhouette score of all k tested; elbow point in inertia; produces 3 interpretable, policy-relevant county segments"
